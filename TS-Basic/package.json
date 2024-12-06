@@ -1,0 +1,12 @@
+{
+  "name": "ts-basic",
+  "scripts": {
+    "watch": "nodemon --watch src/**/*.ts --exec ts-node src/main.ts"
+  },
+  "dependencies": {
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1"
+  }
+}
