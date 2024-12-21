@@ -3,6 +3,9 @@ import { ref } from 'vue'
 
 defineProps<{ msg: string }>()
 
+// const update = defineEmits(['update:modelValue'])
+
+// update()
 const count = ref(0)
 </script>
 

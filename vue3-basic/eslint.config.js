@@ -41,7 +41,7 @@ export default [
           allowTaggedTemplates: false // 不允许使用标签模板字符串
         }
       ],
-      'no-console': 'warn'
+      // 'no-console': 'warn'
     }
   },
   // {
@@ -63,6 +63,12 @@ export default [
   {
     // 为.vue文件定义特定的解析器选项
     files: ['**/*.vue'],
-    languageOptions: { parserOptions: { parser: tseslint.parser } } // 使用typescript-eslint的解析器来处理.vue文件中的<script>部分
+    // 使用typescript-eslint的解析器来处理.vue文件中的<script>部分
+    languageOptions: { parserOptions: { parser: tseslint.parser } },
+    rules: {
+      "vue/multi-word-component-names": ["error", {
+        "ignores": ['index']
+      }]
+    }
   }
 ]
