@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+
 import Button from './components/Button/Button.vue'
 import type { ButtonInstance } from './components/Button/types'
+
+import Collapse from './components/Collapse/Collapse.vue'
+import CollapseItem from './components/Collapse/CollapseItem.vue'
+import Card from './components/Card/Card.vue'
 
 const btnRef = ref<ButtonInstance | null>(null)
 
@@ -10,6 +15,8 @@ onMounted(() => {
     console.log(btnRef.value.ref)
   }
 })
+
+const activeNames = ref(['a', 'b'])
 </script>
 
 <template>
@@ -37,7 +44,30 @@ onMounted(() => {
     <Button type="warning" plain>Warning</Button>
     <Button type="danger" plain>Danger</Button>
   </header>
+  <Button icon="code">Icon</Button>
+  <Button loading type="success" size="small">Loading</Button>
+  <Button loading type="success" size="large">Loading</Button>
   <br /><br />
+  <Card name="Collapse">
+    <Collapse v-model="activeNames" :accordion="false">
+      <collapse-item title="title A" name="a">
+        <p>Simplify the process: keep operating process simple and intuitive aaa;</p>
+        <p>Simplify the process: keep operating process simple and intuitive aaa;</p>
+      </collapse-item>
+
+      <collapse-item title="title B" name="b">
+        <template #title>
+          <b>title B </b>
+        </template>
+        <p>Simplify the process: keep operating process simple and intuitive bbb;</p>
+        <p>Simplify the process: keep operating process simple and intuitive bbb;</p>
+      </collapse-item>
+
+      <collapse-item title="title C" name="c" :disabled="true">
+        <p>Simplify the process: keep operating process simple and intuitive ccc;</p>
+      </collapse-item>
+    </Collapse>
+  </Card>
   <main>
     <Button ref="btnRef" type="primary" plain disabled>Primary</Button>
   </main>
