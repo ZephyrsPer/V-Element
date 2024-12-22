@@ -1,8 +1,10 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="card">
-    <header class="header">{{ name }}</header>
-    <slot></slot>
+    <div>
+      <header class="header">{{ name }}</header>
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -13,13 +15,21 @@ defineProps<{ name: string }>()
 
 <style scoped>
 .card {
+  /* width: 100%; */
+  /* overflow-x: hidden; */
   border: 1px solid;
   padding: 12px;
   background-color: rgb(211, 214, 214);
+  margin: 5px 0px;
 
   & .header {
     margin-bottom: 6px;
     font-size: 24px;
+  }
+
+  & div {
+    border: 1px white solid;
+    padding: 12px;
   }
 }
 </style>
